@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Generatore SHA-256</title>
+</head>
+
+<body>
+
+<h2>Generatore hash password</h2>
+
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="generate()">
+Genera hash
+</button>
+
+<p id="result"></p>
+
+
+<script>
+
+async function sha256(message){
+
+    const data =
+        new TextEncoder()
+        .encode(message);
+
+
+    const hashBuffer =
+        await crypto.subtle.digest(
+            "SHA-256",
+            data
+        );
+
+
+    return Array.from(
+        new Uint8Array(hashBuffer)
+    )
+    .map(
+        b =>
+        b.toString(16)
+        .padStart(2,"0")
+    )
+    .join("");
+
+}
+
+
+async function generate(){
+
+    const password =
+        document
+        .getElementById("password")
+        .value;
+
+
+    const hash =
+        await sha256(password);
+
+
+    document
+    .getElementById("result")
+    .innerText =
+        hash;
+
+}
+
+</script>
+
+</body>
+</html>

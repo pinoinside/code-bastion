@@ -1,0 +1,362 @@
+/* ==========================================================================
+   CodeBastion - Modern Dark Theme
+   ========================================================================== */
+
+:root {
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --bg-panel: #182232;
+    --bg-input: #0f172a;
+    
+    --border-color: #334155;
+    --border-focus: #3b82f6;
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success: #10b981;
+    --success-hover: #059669;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --warning: #f59e0b;
+
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   1. Auth / Login Screen
+   ========================================================================== */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+}
+
+.auth-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.25rem;
+}
+
+.brand-logo h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.shield-icon {
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form-group input {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--border-focus);
+}
+
+.error-message {
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    text-align: center;
+    min-height: 1.2rem;
+}
+
+/* ==========================================================================
+   2. Buttons
+   ========================================================================== */
+
+.btn {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.875rem;
+    transition: all 0.15s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-block {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); }
+
+.btn-success { background: var(--success); color: white; }
+.btn-success:hover { background: var(--success-hover); }
+
+.btn-secondary { background: #475569; color: white; }
+.btn-secondary:hover { background: #334155; }
+
+.btn-danger { background: var(--danger); color: white; }
+.btn-danger:hover { background: var(--danger-hover); }
+
+.btn-sm { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+
+/* ==========================================================================
+   3. IDE Workspace Layout
+   ========================================================================== */
+
+.ide-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.ide-header {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-mini {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.status-bar {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.status-value {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    font-family: var(--font-mono);
+}
+
+.timer-badge {
+    color: var(--border-focus);
+    font-weight: 600;
+}
+
+.warning-badge {
+    color: var(--warning);
+}
+
+.status-pill {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: #334155;
+}
+
+/* Workspace Panels */
+
+.ide-workspace {
+    display: grid;
+    grid-template-rows: 1fr 220px;
+    flex: 1;
+    gap: 8px;
+    padding: 8px;
+    background: var(--bg-dark);
+}
+
+.panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    background: var(--bg-card);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.panel-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.editor-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.output-panel {
+    background: #090d16;
+}
+
+.console-body {
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: #38bdf8;
+    overflow-y: auto;
+    flex: 1;
+    white-space: pre-wrap;
+}
+
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: rgba(15, 23, 42, 0.6);
+    border-top: 1px solid var(--border-color, #334155);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+}
+
+.terminal-prompt-symbol {
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+#terminal-input-field {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f8fafc;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+#terminal-input-field::placeholder {
+    color: #64748b;
+}
+
+/* ==========================================================================
+   4. Security / Warning Overlay
+   ========================================================================== */
+/* Regola fondamentale per nascondere qualsiasi elemento con attributo hidden */
+[hidden] {
+    display: none !important;
+}
+
+/* Regola della modal warning */
+.warning-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(4px);
+    display: none; /* <-- Assicurati che qui ci sia 'none' e NON 'flex' */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.warning-modal {
+    background: var(--bg-card);
+    border: 2px solid var(--danger);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.3);
+}
+
+.warning-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.warning-modal h2 {
+    color: var(--danger);
+    margin-bottom: 0.5rem;
+}
+
+.warning-modal p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
